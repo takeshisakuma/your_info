@@ -34,7 +34,7 @@ axios.get("https://ipinfo.io/ip").then((res: ipType) => {
   for (const [key, value] of Object.entries(userInfos)) {
     table1.innerHTML += "<tr>" + "<td>" + key + "</td>" + "<td>" + value + "</td>" + "</tr>"
   }
-  const userInfosDiv = document.getElementById("userInfos");
+  const userInfosDiv = document.getElementById("userInfos")!;
   userInfosDiv.append(table1);
 
 
@@ -60,7 +60,7 @@ const successCallback = (position: GeolocationPosition) => {
   for (const [key, value] of Object.entries(positionInfos)) {
     table2.innerHTML += "<tr>" + "<td>" + key + "</td>" + "<td>" + value + "</td>" + "</tr>"
 
-    const userPositionDiv = document.getElementById("userPosition");
+    const userPositionDiv = document.getElementById("userPosition")!;
     userPositionDiv.innerHTML = "";
     userPositionDiv.append(table2);
   }
@@ -90,19 +90,19 @@ const deviceOrientationTest = () => {
     const accelerationInfos: accelerationInfosType = {};
 
     if (event.acceleration) {
-      accelerationInfos.加速度X軸 = (event.acceleration.x !== null) ? event.acceleration.x : "取得できませんでした。";
-      accelerationInfos.加速度Y軸 = (event.acceleration.y !== null) ? event.acceleration.y : "取得できませんでした。";
-      accelerationInfos.加速度Z軸 = (event.acceleration.z !== null) ? event.acceleration.z : "取得できませんでした。";
+      accelerationInfos.加速度_X軸 = (event.acceleration.x !== null) ? event.acceleration.x : "取得できませんでした。";
+      accelerationInfos.加速度_Y軸 = (event.acceleration.y !== null) ? event.acceleration.y : "取得できませんでした。";
+      accelerationInfos.加速度_Z軸 = (event.acceleration.z !== null) ? event.acceleration.z : "取得できませんでした。";
     }
     if (event.accelerationIncludingGravity) {
-      accelerationInfos.加速度重力加速度X軸 = (event.accelerationIncludingGravity.x !== null) ? event.accelerationIncludingGravity.x : "取得できませんでした。";
-      accelerationInfos.加速度重力加速度Y軸 = (event.accelerationIncludingGravity.y !== null) ? event.accelerationIncludingGravity.y : "取得できませんでした。";
-      accelerationInfos.加速度重力加速度Z軸 = (event.accelerationIncludingGravity.z !== null) ? event.accelerationIncludingGravity.z : "取得できませんでした。";
+      accelerationInfos.加速度プラス重力加速度_X軸 = (event.accelerationIncludingGravity.x !== null) ? event.accelerationIncludingGravity.x : "取得できませんでした。";
+      accelerationInfos.加速度プラス重力加速度_Y軸 = (event.accelerationIncludingGravity.y !== null) ? event.accelerationIncludingGravity.y : "取得できませんでした。";
+      accelerationInfos.加速度プラス重力加速度_Z軸 = (event.accelerationIncludingGravity.z !== null) ? event.accelerationIncludingGravity.z : "取得できませんでした。";
     }
     if (event.rotationRate) {
-      accelerationInfos.回転加速度X軸 = (event.rotationRate.beta !== null) ? event.rotationRate.beta : "取得できませんでした。";
-      accelerationInfos.回転加速度Y軸 = (event.rotationRate.gamma !== null) ? event.rotationRate.gamma : "取得できませんでした。";
-      accelerationInfos.回転加速度Z軸 = (event.rotationRate.alpha !== null) ? event.rotationRate.alpha : "取得できませんでした。";
+      accelerationInfos.回転加速度_X軸 = (event.rotationRate.beta !== null) ? event.rotationRate.beta : "取得できませんでした。";
+      accelerationInfos.回転加速度_Y軸 = (event.rotationRate.gamma !== null) ? event.rotationRate.gamma : "取得できませんでした。";
+      accelerationInfos.回転加速度_Z軸 = (event.rotationRate.alpha !== null) ? event.rotationRate.alpha : "取得できませんでした。";
 
       const table3 = document.createElement("table");
 
@@ -110,7 +110,7 @@ const deviceOrientationTest = () => {
       for (const [key, value] of Object.entries(accelerationInfos)) {
         table3.innerHTML += "<tr>" + "<td>" + key + "</td>" + "<td>" + value + "</td>" + "</tr>"
 
-        const userSensorDiv = document.getElementById("userSensor");
+        const userSensorDiv = document.getElementById("userSensor")!;
         userSensorDiv.innerHTML = "";
         userSensorDiv.append(table3);
 
@@ -135,14 +135,11 @@ deviceOrientationLoop();
 
 
 //通信状況
-const userOnline = document.getElementById("userOnline");
+const userOnline = document.getElementById("userOnline")!;
 
 const getNetworkCondition = () => {
-
   userOnline.innerHTML = (navigator.onLine) ? "現在オンラインです。" : "現在オフラインです。";
-
   window.requestAnimationFrame(getNetworkCondition);
-
 }
 
 getNetworkCondition();
