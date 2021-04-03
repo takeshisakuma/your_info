@@ -30,7 +30,7 @@ module.exports = {
         },
         {
           from: "src/img/favicon.svg",
-          to: "./img/favicon.svg",
+          to: "./favicon.svg",
         },
         {
           from: "src/img/ogp.png",
