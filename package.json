@@ -8,7 +8,8 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "watch": "webpack  --mode development --watch",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "devserve": "webpack serve"
   },
   "repository": {
     "type": "git",

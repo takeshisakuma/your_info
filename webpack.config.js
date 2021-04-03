@@ -28,6 +28,14 @@ module.exports = {
           from: "src/css/style.css",
           to: "./css/style.css",
         },
+        {
+          from: "src/img/favicon.svg",
+          to: "./img/favicon.svg",
+        },
+        {
+          from: "src/img/ogp.png",
+          to: "./img/ogp.png",
+        },
       ],
     }),
   ],
