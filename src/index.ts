@@ -25,7 +25,7 @@ axios.get("https://ipinfo.io/ip").then((res: ipType) => {
   userInfos.ブラウザのビューポートの高さ = window.innerHeight;
   userInfos.デバイスピクセル比 = window.devicePixelRatio;
   userInfos.タッチ操作 =
-    (navigator.pointerEnabled === true) ? "可" : "不可";
+    (navigator.maxTouchPoints === 0) ? "不可" : "可";
   userInfos.最大同時タッチ数 = navigator.maxTouchPoints;
 
 
@@ -79,6 +79,13 @@ navigator.geolocation.watchPosition(successCallback, failureCallback);
 
 
 const deviceOrientationTest = () => {
+
+
+
+
+
+
+
   window.addEventListener("devicemotion", (event: DeviceMotionEvent) => {
     const accelerationInfos: accelerationInfosType = {};
 
@@ -109,9 +116,12 @@ const deviceOrientationTest = () => {
 
       }
     }
-  });
+  })
+}
+  ;
 
-};
+
+
 
 //センサーから加速度を取得して書き出す処理をループ実行
 
