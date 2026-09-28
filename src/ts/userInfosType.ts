@@ -27,6 +27,7 @@ export type userInfosType = {
   カラーモード?: string;
   タッチ操作?: string;
   最大同時タッチ数?: number;
+  通信状態?: string;
   通信の種類?: string;
   通信の実効タイプ?: string;
   下り速度の目安?: string;

@@ -15,6 +15,7 @@ body {
 
 header {
   background-color: white;
+  border-bottom: 3px solid #2c3e50;
 }
 
 .header--inner {
@@ -70,6 +71,22 @@ h1 {
 
 h1 a {
   text-decoration: none;
+  color: #2c3e50;
+}
+
+.lead {
+  margin: 0 0 20px;
+  line-height: 1.7;
+}
+
+.section + .section {
+  margin-top: 28px;
+}
+
+.note {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
 }
 @media screen and (max-width: 1200px) {
   h1 {
@@ -79,11 +96,11 @@ h1 a {
 }
 
 h2 {
-  margin-bottom: 0;
-  font-size: 1rem;
-  padding: 0 4px 1px 0;
-  border-bottom: 1px solid rgb(55, 64, 70);
-  display: inline-block;
+  margin: 0;
+  font-size: 1.125rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #2c3e50;
+  color: #2c3e50;
 }
 
 table {
@@ -105,7 +122,8 @@ td:last-child {
 }
 
 td:first-child {
-  width: 30%;
+  width: 34%;
+  background-color: #f3f6f8;
 }
 .test {
   color: red;

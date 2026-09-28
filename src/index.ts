@@ -307,9 +307,65 @@ const renderInfoTable = (container: HTMLElement, rows: object): void => {
   container.append(table);
 };
 
+const pickUserInfos = (keys: string[]): { [key: string]: string | number } => {
+  const rows: { [key: string]: string | number } = {};
+  const source = userInfos as { [key: string]: string | number | undefined };
+  for (let i = 0; i < keys.length; i++) {
+    const value = source[keys[i]];
+    if (value !== undefined) {
+      rows[keys[i]] = value;
+    }
+  }
+  return rows;
+};
+
+const renderNetwork = (): void => {
+  userInfos.通信状態 = navigator.onLine ? "オンライン" : "オフライン";
+  renderInfoTable(document.getElementById("userNetwork")!, pickUserInfos([
+    "通信状態",
+    "IPアドレス",
+    "通信の種類",
+    "通信の実効タイプ",
+    "下り速度の目安",
+    "通信の遅延",
+    "データセーバー",
+  ]));
+};
+
 const renderUserInfos = (): void => {
-  const userInfosDiv = document.getElementById("userInfos")!;
-  renderInfoTable(userInfosDiv, userInfos);
+  renderInfoTable(document.getElementById("userBrowser")!, pickUserInfos([
+    "ブラウザ名",
+    "ブラウザバージョン",
+    "ブラウザの使用言語",
+    "優先言語",
+    "ブラウザのユーザーエージェント",
+  ]));
+  renderInfoTable(document.getElementById("userDevice")!, pickUserInfos([
+    "OS",
+    "OSバージョン",
+    "CPUアーキテクチャ",
+    "ビット数",
+    "CPUの論理コア数",
+    "端末モデル",
+    "モバイル",
+    "タイムゾーン",
+    "UTCとの時差",
+  ]));
+  renderInfoTable(document.getElementById("userScreen")!, pickUserInfos([
+    "スクリーンの幅",
+    "スクリーンの高さ",
+    "画面の作業領域の幅",
+    "画面の作業領域の高さ",
+    "画面の向き",
+    "スクリーンの色深度bit",
+    "ブラウザのビューポートの幅",
+    "ブラウザのビューポートの高さ",
+    "デバイスピクセル比",
+    "カラーモード",
+    "タッチ操作",
+    "最大同時タッチ数",
+  ]));
+  renderNetwork();
 };
 
 let ipAddress = unavailable;
@@ -435,13 +491,5 @@ if (typeof DeviceMotionEvent === "undefined") {
 }
 
 
-//通信状況
-const userOnline = document.getElementById("userOnline")!;
-
-const renderOnline = (): void => {
-  userOnline.textContent = navigator.onLine ? "現在オンラインです。" : "現在オフラインです。";
-};
-
-renderOnline();
-window.addEventListener("online", renderOnline);
-window.addEventListener("offline", renderOnline);
+window.addEventListener("online", renderNetwork);
+window.addEventListener("offline", renderNetwork);

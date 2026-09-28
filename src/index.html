@@ -27,16 +27,40 @@
       </div>
     </header>
     <main>
-      <div id="userOnline"></div>
+      <p class="lead">このページは、今開いているブラウザから見える端末の情報を表示します。</p>
 
-      <h2>ブラウザ</h2>
-      <div id="userInfos"></div>
+      <section class="section">
+        <h2>ブラウザ</h2>
+        <div id="userBrowser"></div>
+      </section>
 
-      <h2>位置情報</h2>
-      <div id="userPosition">位置情報を取得しています。</div>
+      <section class="section">
+        <h2>端末</h2>
+        <div id="userDevice"></div>
+      </section>
 
-      <h2>センサー</h2>
-      <div id="userSensor">センサー情報を取得しています。</div>
+      <section class="section">
+        <h2>画面</h2>
+        <div id="userScreen"></div>
+      </section>
+
+      <section class="section">
+        <h2>通信</h2>
+        <p class="note">IPアドレスはインターネット接続のアドレスです。位置情報の緯度・経度とは別の値です。通信の実効タイプや速度はブラウザによる目安で、対応していないブラウザでは取得できません。</p>
+        <div id="userNetwork"></div>
+      </section>
+
+      <section class="section">
+        <h2>位置情報</h2>
+        <p class="note">表示には位置情報の許可が必要です。緯度・経度は端末が測った位置です。</p>
+        <div id="userPosition">位置情報を取得しています。</div>
+      </section>
+
+      <section class="section">
+        <h2>センサー</h2>
+        <p class="note">加速度や回転は、センサーのある端末で動きがあるときに更新されます。パソコンでは空になることが多いです。</p>
+        <div id="userSensor">センサー情報を取得しています。</div>
+      </section>
     </main>
     <footer>
       <div class="footer--inner">
