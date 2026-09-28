@@ -92,9 +92,16 @@ table {
   width: 100%;
 }
 td {
-  font-size: 10px;
+  font-size: 0.875rem;
+  line-height: 1.5;
   padding: 8px;
   border: 1px solid #333;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+td:last-child {
+  word-break: break-all;
 }
 
 td:first-child {
