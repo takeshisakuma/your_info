@@ -36,6 +36,18 @@ module.exports = {
           from: "src/img/ogp.png",
           to: "./img/ogp.png",
         },
+        {
+          from: "src/manifest.webmanifest",
+          to: "./manifest.webmanifest",
+        },
+        {
+          from: "src/img/icon-*.png",
+          to: "./img/[name][ext]",
+        },
+        {
+          from: "src/img/apple-touch-icon.png",
+          to: "./img/apple-touch-icon.png",
+        },
       ],
     }),
   ],
